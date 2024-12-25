@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<input id="ipt-file" type="file">
+<script>
+    document.getElementById('ipt-file').addEventListener('change', async function() {
+        let file = this.files[0];
+        this.value = '';
+
+        let fd = new FormData();
+        fd.append('image', file);
+        let rep = await fetch('/path/to/your/API', {
+            method: 'POST',
+            body: fd,
+        });
+        let arrTxt = await rep.json();
+        let strTxts = arrTxt.join(',\n');
+        console.log(strTxts);
+        alert(strTxts);
+    });
+</script>
+</body>
+</html>

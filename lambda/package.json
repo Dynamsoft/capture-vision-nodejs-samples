@@ -1,0 +1,9 @@
+{
+  "name": "dcv-lambda",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "dynamsoft-capture-vision-for-node": "0.0.7",
+    "lambda-multipart-parser": "^1.0.1"
+  }
+}
