@@ -6,6 +6,8 @@ This is a nodejs wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.co
 npm i dynamsoft-capture-vision-for-node@0.0.10 -E
 ```
 
+## Let's Start from Barcode Reader
+
 Let's take parsing barcodes in a picture as an example.
 
 ```js
@@ -15,9 +17,6 @@ const { LiceseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dyna
 // https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server
 // The current used license is valid for 1 day.
 LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
-
-//// In some cases you need custom templates provided by Dynamsoft Support
-// CaptureVisionRouter.initSettings('path/to/template');
 
 (async()=>{
     // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png
@@ -34,6 +33,27 @@ LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
     await CaptureVisionRouter.terminateIdleWorkers();
 })();
 ```
+
+### Specific the Barcode Formats
+
+1. Copy SDK's `Templates\DBR-PresetTemplates.json` to your place.
+
+2. Search "BarcodeFormatIds" and choose the one you need.
+
+   e.g., if you want use `EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST`, choose the task with `"Name": "task-read-barcodes-read-rate"`.
+
+3. Change "BarcodeFormatIds". You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
+
+4. Apply this template.
+   ```js
+   CaptureVisionRouter.initSettings('path/to/the/template/file');
+   ```
+
+> Warning: Templates are complex parameter settings. Don't get lost in them, just [contact us](https://www.dynamsoft.com/contact/).
+
+<hr>
+
+Documents for Label Recognize, Document Capture, and others, are under Construction. You can refer to [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) or [contact us](https://www.dynamsoft.com/contact/).
 
 ## The `capture` like API
 
