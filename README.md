@@ -86,12 +86,6 @@ let result = await CaptureVisionRouter.captureAsync(input_data_contains_bytes, {
 });
 ```
 
-## Web Service
-
-[Express sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/express) and [koa sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/koa) shows how to use the SDK in a web service. You do not need to start multiple instance processes in [PM2 Cluster mode](https://pm2.keymetrics.io/docs/usage/quick-start/#cluster-mode). As mentioned above, Dynamsoft Capture Vision for Node already manages a thread pool. 
-
-However, `pm2 start app.js` is still useful, it can automatically restart `app.js` when service crashes.
-
 ## Supported OS/Arch
 
 |  os  |  arch  |
@@ -109,6 +103,12 @@ You can install resources pkgs (dynamic libraries) for other OS/arch. So you can
 ```bash
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
 ```
+
+## Web Service
+
+[Express sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/express) and [koa sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/koa) shows how to use the SDK in a web service. You do not need to start multiple instance processes in [PM2 Cluster mode](https://pm2.keymetrics.io/docs/usage/quick-start/#cluster-mode). As mentioned above, Dynamsoft Capture Vision for Node already manages a thread pool. 
+
+However, `pm2 start app.js` is still useful, it can automatically restart `app.js` when service crashes.
 
 ## AWS Lambda
 
