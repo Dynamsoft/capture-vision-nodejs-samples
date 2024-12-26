@@ -2,19 +2,41 @@
 
 This sample shows how to deploy a lambda decoding service.
 
-If you don't know how to deploy a lambda service, please refer to: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
+## Prerequisites
 
-We use [lambda-multipart-parser](https://www.npmjs.com/package/lambda-multipart-parser) to parse `multipart/form-data`. It's best to read its documentation to understand the API Gateway setup to support binary file uploads.
+1. You need to have basic nodejs and web development experience.
 
-After testing, we support lambda nodejs 20 and above environments.
+2. If you don't know how to deploy a lambda service, please refer to: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
 
-Depending on the lambda arch (x64/arm64) you use, you need to install the corresponding dependency.
+3. We use [lambda-multipart-parser](https://www.npmjs.com/package/lambda-multipart-parser) to parse `multipart/form-data`. It's best to read its documentation. You need configurate AWS API Gateway to support binary file uploads.
 
-```bash
-npm i dynamsoft-capture-vision-for-node-dylib-linux-<arch>@<version> -f -E
+## Supported Versions
+
+We support lambda nodejs 20 and above environments.
+
+## Install Dependency
+
+```
+npm i
 ```
 
-If your development machine is not of the same arch as lambda, it is best to remove the useless `dynamsoft-capture-vision-for-node-dylib-<OS>-<arch>` to reduce the size.
+If your development machine is not of the same OS/arch as your target lambda (linux x64/arm64), you need to install a dependency.
+
+```bash
+npm i dynamsoft-capture-vision-for-node-lib-linux-<arch>@<version> -f -E
+```
+You can find `<arch>@<version>` in `node_modules/dynamsoft-capture-vision-for-node/package.json`->`optionalDependencies`.
+
+## Save Disk Space
+
+If your development machine is not of the same OS/arch as lambda, it is better to remove the useless `node_modules/dynamsoft-capture-vision-for-node-dylib-<OS>-<arch>` before deployment.
+
+You can also remove some files in `node_modules/koffi`, only left:
+* `node_modules/koffi/build/koffi/<target os_arch>`
+* `node_modules/koffi/index.js`
+* `node_modules/koffi/package.json`
+
+## Front-end Upload Image
 
 `index.html` is a front-end example. Please make sure to modify the service address in the html.
 

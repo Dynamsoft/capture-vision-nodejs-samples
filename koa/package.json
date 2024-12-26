@@ -5,7 +5,7 @@
   "dependencies": {
     "@koa/multer": "^3.0.2",
     "@koa/router": "^13.1.0",
-    "dynamsoft-capture-vision-for-node": "0.0.7",
+    "dynamsoft-capture-vision-for-node": "0.0.10",
     "koa": "^2.15.3",
     "koa-static": "^5.0.0"
   }
