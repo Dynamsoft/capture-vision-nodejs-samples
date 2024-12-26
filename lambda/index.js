@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
   const request = await parser.parse(event);
 
   // You can only use the synchronous version of `capture` in lambda.
-  let result = CaptureVisionRouter.capture(request.files[0].content, 'ReadSingleBarcode');
+  let result = CaptureVisionRouter.capture(request.files[0].content, EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
 
   return {
     'statusCode': 200,
