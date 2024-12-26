@@ -53,7 +53,7 @@ LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 <hr>
 
-Documents for Label Recognize, Document Capture, and others, are under Construction. You can refer to [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) or [contact us](https://www.dynamsoft.com/contact/).
+Documents for **Label Recognize**, **Document Capture**, and others, are under construction. You can refer to [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) or [contact us](https://www.dynamsoft.com/contact/).
 
 ## The `capture` like API
 
