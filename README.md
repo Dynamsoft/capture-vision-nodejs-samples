@@ -98,7 +98,7 @@ let result = await CaptureVisionRouter.captureAsync(input_data_contains_bytes, {
 
 <!--If you are sure you don't need to support some of these OS/arch, you can delete some files in `node_modules/dynamsoft-capture-vision-for-node/dylib` and `node_modules/koffi`, to reduce the size. In some cloud platforms like AWS lambda, size is important.-->
 
-You can install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's `package.json`->`optionalDependencies`.
+You can install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
 
 ```bash
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
@@ -116,7 +116,7 @@ We also made special adaptation for AWS lambda, see [this sample](https://github
 
 ## Character Model forLabel Recognizer
 
-You need install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's `package.json`->`peerDependencies`.
+You need install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L53).
 ```bash
 npm i dynamsoft-capture-vision-for-node-charactermodel@<version> -E
 ```
