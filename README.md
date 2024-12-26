@@ -114,7 +114,7 @@ However, `pm2 start app.js` is still useful, it can automatically restart `app.j
 
 We also made special adaptation for AWS lambda, see [this sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/lambda). Other similar single-function platforms may have some compatibility issues. If you have any needs, please contact us.
 
-## Label Recognize
+## Character Model forLabel Recognizer
 
 You need install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's `package.json`->`peerDependencies`.
 ```bash
