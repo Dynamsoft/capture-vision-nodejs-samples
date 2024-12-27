@@ -1,6 +1,6 @@
 # Use Dynamsoft Capture Vision for Node in Lambda
 
-This sample shows how to deploy a lambda decoding service.
+This sample shows how to deploy a lambda barcode decoding service.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ This sample shows how to deploy a lambda decoding service.
 
 3. We use [lambda-multipart-parser](https://www.npmjs.com/package/lambda-multipart-parser) to parse `multipart/form-data`. It's best to read its documentation. You need configurate AWS API Gateway to support binary file uploads.
 
-## Supported Versions
+## Supported Environments
 
 We support lambda nodejs 20 and above environments.
 
