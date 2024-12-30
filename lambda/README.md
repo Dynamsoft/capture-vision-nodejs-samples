@@ -1,6 +1,6 @@
 # Use Dynamsoft Capture Vision for Node in Lambda
 
-This sample shows how to deploy a lambda barcode decoding service.
+This sample shows how to deploy a barcode decoding service in AWS Lambda.
 
 ## Prerequisites
 
@@ -13,6 +13,14 @@ This sample shows how to deploy a lambda barcode decoding service.
 ## Supported Environments
 
 We support lambda nodejs 20 and above environments.
+
+## Commonjs and ES Module
+
+We provide both `index.js` or `index.mjs`. Please choose one you like and delete another.
+
+## Trial License
+
+Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server. Then replace the license in your source code.
 
 ## Install Dependency
 

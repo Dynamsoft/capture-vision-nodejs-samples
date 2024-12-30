@@ -3,7 +3,7 @@ import parser from 'lambda-multipart-parser';
 
 // You can get your trial license from
 // https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server
-LiceseManager.initLicense('');
+LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 // refer: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
 exports.handler = async (event, context) => {
