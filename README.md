@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```bash
-npm i dynamsoft-capture-vision-for-node@0.0.10 -E
+npm i dynamsoft-capture-vision-for-node@0.0.12 -E
 ```
 
 ## Getting Started
@@ -13,12 +13,12 @@ npm i dynamsoft-capture-vision-for-node@0.0.10 -E
 Take barcode reading from an image as an example.
 
 ```js
-const { LiceseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dynamsoft-capture-vision-for-node');
+const { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dynamsoft-capture-vision-for-node');
 
 // You can get your trial license from
 // https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server/Embedded
 // The current used license is valid for only one day.
-LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
+LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 (async()=>{
     // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png

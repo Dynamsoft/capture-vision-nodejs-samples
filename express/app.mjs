@@ -1,14 +1,14 @@
 import express from 'express';
 import multer from 'multer';
-import { LiceseManager, CaptureVisionRouter, EnumPresetTemplate } from 'dynamsoft-capture-vision-for-node';
+import { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } from 'dynamsoft-capture-vision-for-node';
 
 const app = express();
 const port = 3000;
 
 // You can get your trial license from
-// https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server
-// The current used license is valid for 1 day.
-LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
+// https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server/Embedded
+// The current used license is valid for only one day.
+LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 app.post('/api/capture',
   multer().single('image'), // handle `multpart/form-data`

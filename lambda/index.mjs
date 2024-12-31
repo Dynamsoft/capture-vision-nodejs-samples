@@ -1,9 +1,9 @@
-import { LiceseManager, CaptureVisionRouter } from 'dynamsoft-capture-vision-for-node';
+import { LicenseManager, CaptureVisionRouter } from 'dynamsoft-capture-vision-for-node';
 import parser from 'lambda-multipart-parser';
 
 // You can get your trial license from
-// https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server
-LiceseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
+// https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server/Embedded
+LicenseManager.initLicense('Your license');
 
 // refer: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html
 exports.handler = async (event, context) => {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "0.0.11",
+    "dynamsoft-capture-vision-for-node": "0.0.12",
     "lambda-multipart-parser": "^1.0.1"
   }
 }
