@@ -11,15 +11,49 @@
         let file = this.files[0];
         this.value = '';
 
-        let fd = new FormData();
-        fd.append('image', file);
-        let rep = await fetch('/path/to/your/API', {
-            method: 'POST',
-            body: fd,
+        if(file.size > (7 << 20)){
+            // Lambda limits 10MB, refer: https://stackoverflow.com/a/37553294/6414094
+            // Base64 size is 4/3 of blob, so it safer to limit 7MB.
+            let errorMsg = 'The file is too large, please limit it to 7M or less.';
+            alert(errorMsg)
+            throw Error(errorMsg);
+            // If you want to take full advantage of this 10MB size,
+            // use the binary processing capabilities of API Gateway.
+            // Or use AWS S3 which has more storage capacity.
+        }
+
+        let base64 = await new Promise(rs=>{
+            let fileReader = new FileReader();
+            fileReader.onload = ()=>{ rs(fileReader.result) }
+            fileReader.readAsDataURL(file);
         });
-        let arrTxt = await rep.json();
+        base64 = base64.substring(base64.indexOf(',') + 1);
+
+        let rep;
+        try{
+            // AWS Console -> Lambda -> Function -> Your function name ->
+            // Configuartion -> Function URL -> Copy
+            rep = await fetch('https://<url-id>.lambda-url.<region>.on.aws/', {
+                method: 'POST',
+                body: base64,
+            });
+        }catch(ex){
+            alert('Network error!');
+            throw ex;
+        }
+        if(!rep.ok){
+            let txt = await rep.text();
+            alert(txt);
+            throw Error(txt);
+        }
+
+        let results = await rep.json();
+        console.log(results);
+        let arrTxt = [];
+        for(let i of results){
+            arrTxt.push(i.text);
+        }
         let strTxts = arrTxt.join(',\n');
-        console.log(strTxts);
         alert(strTxts);
     });
 </script>
