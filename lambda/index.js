@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
     let buf = Buffer.from(event.body, 'base64');
 
     // You can only use the synchronous version of `capture` in lambda.
-    let result = CaptureVisionRouter.capture(buf, EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
+    let result = CaptureVisionRouter.capture(buf, EnumPresetTemplate.PT_READ_BARCODES);
 
     return {
       'statusCode': 200,

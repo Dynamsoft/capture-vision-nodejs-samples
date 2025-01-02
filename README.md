@@ -23,7 +23,7 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 (async()=>{
     // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png
     // The second parameter `templateName` tells the SDK how to process this image.
-    let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
+    let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES);
     // refer to https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/api-reference/capture-vision-router/auxiliary-classes/captured-result.html?product=dbr&lang=cplusplus
     // or run `console.log(require('node:util').inspect(result, false, null))` to see details
     for(let item of result.barcodeResultItems){
@@ -53,8 +53,8 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
    >```diff
-   >   "Name": "task-read-barcodes-read-rate",
-   >   "ExpectedBarcodesCount": 999,
+   >   "Name": "task-read-barcodes",
+   >   "ExpectedBarcodesCount": 0,
    >   "BarcodeFormatIds": [
    >-      "BF_DEFAULT"
    >+      "BF_QR_CODE",
