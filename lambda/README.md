@@ -96,7 +96,7 @@ Memory to 256MB, timeout to 1 min -> `Function URL` -> Copy URL
 
 ## Front-end Upload Image
 
-`index.html` is a front-end example. In your local development machine, replace `https://<url-id>.lambda-url.<region>.on.aws/` to the `Function URL` you copied.
+`index.html` is a front-end example. Please edit `index.html` that in your local development machine, replace `https://<url-id>.lambda-url.<region>.on.aws/` to the `Function URL` you copied.
 
 Open the `index.html` in a browser. Click and select an image to upload.
 
