@@ -4,7 +4,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 
 ## Install SDK
 
-```bash
+```sh
 npm i dynamsoft-capture-vision-for-node@0.0.12 -E
 ```
 
@@ -119,7 +119,7 @@ let result = await CaptureVisionRouter.captureAsync(input_data_contains_bytes, {
 
 You can install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
 
-```bash
+```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
 ```
 
@@ -138,7 +138,7 @@ We also made special adaptation for AWS lambda, see [this sample](https://github
 ### Character Model for Label Recognizer
 
 When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L53).
-```bash
+```sh
 npm i dynamsoft-capture-vision-for-node-charactermodel@<version> -E
 ```
 

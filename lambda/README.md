@@ -33,7 +33,7 @@ Go into the `lambda` folder. Now the path is `path/to/capture-vision-nodejs-samp
 
 ## Trial License
 
-Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server. Then replace `Your license` in your source code (`index.js` and `index.mjs`).
+Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server. Then replace `Your license` in your source code (`index.js` and `index.mjs`).
 
 ## Install Dependency
 

@@ -18,4 +18,4 @@ node app.mjs
 
 Open the url displayed in the command line.
 
-If your trial license expired, please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader -> Desktop/Server.
+If your trial license expired, please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server.
