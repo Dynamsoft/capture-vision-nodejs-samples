@@ -38,6 +38,9 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 If your trial license expired, please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server.
 
+> [!NOTE]
+> Guide for tasks such as Label Recognition and Document Capturing are under development. You can refer to the [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) while writing code for Node.js. Or [contact us](https://www.dynamsoft.com/contact/) for assistance.
+
 ## Template Customization
 
 The functionality of DCV largely depends on the choice of template. Dynamsoft offers preset templates. Below is an example illustrating how to modify the target barcode formats for a barcode reading task.
@@ -69,11 +72,6 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 
 > [!WARNING]
 > Due to its powerful customization capabilities, the number of configurable parameters in the templates is extensive and relatively complex. To ease your workload, if the preset templates do not meet your requirements, feel free to [contact us](https://www.dynamsoft.com/contact/) for a customized template.
-
-<hr>
-
-> [!NOTE]
-> Samples for tasks such as Label Recognition and Document Capturing are under development. You can refer to the [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) or [contact us](https://www.dynamsoft.com/contact/) for assistance.
 
 ## About the `capture` like API
 
