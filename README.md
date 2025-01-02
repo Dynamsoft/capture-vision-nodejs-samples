@@ -21,18 +21,18 @@ const { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dyn
 LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 (async()=>{
-    // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png
-    // The second parameter `templateName` tells the SDK how to process this image.
-    let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES);
-    // refer to https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/api-reference/capture-vision-router/auxiliary-classes/captured-result.html?product=dbr&lang=cplusplus
-    // or run `console.log(require('node:util').inspect(result, false, null))` to see details
-    for(let item of result.barcodeResultItems){
-        console.log(item.text);
-    }
+  // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png
+  // The second parameter `templateName` tells the SDK how to process this image.
+  let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES);
+  // refer to https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/api-reference/capture-vision-router/auxiliary-classes/captured-result.html?product=dbr&lang=cplusplus
+  // or run `console.log(require('node:util').inspect(result, false, null))` to see details
+  for(let item of result.barcodeResultItems){
+      console.log(item.text);
+  }
 
-    // Terminate workers so you can exit the process.
-    // Don't call it if you still need to use the SDK.
-    await CaptureVisionRouter.terminateIdleWorkers();
+  // Terminate workers so you can exit the process.
+  // Don't call it if you still need to use the SDK.
+  await CaptureVisionRouter.terminateIdleWorkers();
 })();
 ```
 
@@ -53,13 +53,13 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
    >```diff
-   >   "Name": "task-read-barcodes",
-   >   "ExpectedBarcodesCount": 0,
-   >   "BarcodeFormatIds": [
-   >-      "BF_DEFAULT"
-   >+      "BF_QR_CODE",
-   >+      "BF_DATAMATRIX"
-   >   ],
+   >  "Name": "task-read-barcodes",
+   >  "ExpectedBarcodesCount": 0,
+   >  "BarcodeFormatIds": [
+   >-  "BF_DEFAULT"
+   >+  "BF_QR_CODE",
+   >+  "BF_DATAMATRIX"
+   >  ],
    >```
 
 4. Apply this template.
@@ -77,13 +77,11 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 
 ## About the `capture` like API
 
-`CaptureVisionRouter.captureAsync(...)` process images in [worker_threads](https://nodejs.org/api/worker_threads.html). The maximum number of workers is defined by `CaptureVisionRouter.maxWorkerCount`, which defaults to `<logical processor number> - 1` (minimum of 1). If you continue to call `captureAsync(...)` while all workers are busy, the tasks will be queued and wait for execution. Here are a few important points about the `capture` like API:
+`captureAsync(...)` process images in [worker](https://nodejs.org/api/worker_threads.html). The maximum number of workers is defined by `CaptureVisionRouter.maxWorkerCount`, which defaults to `<logical processor number> - 1` (minimum of 1). If you continue to call `captureAsync(...)` while all workers are busy, the tasks will be queued and wait for execution. You can get the queue length by `CaptureVisionRouter.waitQueueLength`.
 
-- The synchronous version is `CaptureVisionRouter.capture(...)`, which processes images on the main thread.
+The synchronous version is `capture(...)`, which processes images on the main thread.
 
-- The `capture` like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf.
-
-- The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
+The `capture` like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf. The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
 ```ts
 interface DCVImageData{
   bytes: Uint8Array;
@@ -96,14 +94,16 @@ interface DCVImageData{
 }
 ```
 
-If input data is file bytes or `DCVImageData`, by default, `CaptureVisionRouter.captureAsync(...)` will [transfer](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage#transfer) bytes into `worker`. Thus you can't access to these bytes in main thread after `captureAsync`. This allows for optimal performance.
+If input data is file bytes or `DCVImageData`, by default, `captureAsync(...)` will [transfer](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage#transfer) bytes into worker. Thus you can't access to these bytes in main thread after `captureAsync`. This allows for optimal performance.
 
 The following code can prevent bytes from being transferred.
 ```js
-let result = await CaptureVisionRouter.captureAsync(input_data_contains_bytes, {
+let result = await CaptureVisionRouter.captureAsync(
+  input_data_contains_bytes, {
     templateName: EnumPresetTemplate.XXXX,
     dataTransferType: 'copy'
-});
+  }
+);
 ```
 
 ## Supported OS/Arch
@@ -117,13 +117,13 @@ let result = await CaptureVisionRouter.captureAsync(input_data_contains_bytes, {
 > [!CAUTION]
 > Since the Dynamsoft Capture Vision 2.6 version of `.dylib` is not compiled, the 2.4 version is used on the `darwin` platform, and the template and some other resources may be incompatible with `linux`/`win32`.
 
-You can install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
+You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
 ```
 
-## Special Notes
+## Samples
 
 ### Web Service
 
@@ -134,6 +134,8 @@ You do not need to start multiple instance processes in [PM2 Cluster mode](https
 ### AWS Lambda
 
 We also made special adaptation for AWS lambda, see [this sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/lambda). Other similar single-function platforms may have some compatibility issues. If you have any needs, please contact us.
+
+## Special Notes
 
 ### Character Model for Label Recognizer
 

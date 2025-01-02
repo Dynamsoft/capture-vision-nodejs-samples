@@ -47,7 +47,7 @@ Install dependencies.
 npm i
 ```
 
-If your local development machine is not of the same OS/arch as your target lambda (linux x64/arm64), you need to install another dependency as well.
+If your local development machine is not of the same OS/arch as your target lambda (linux x64/arm64), you need to force install another dependency as well.
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-linux-<arch>@<version> -f -E
