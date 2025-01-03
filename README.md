@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@0.0.12 -E
+npm i dynamsoft-capture-vision-for-node@2.6.1000 -E
 ```
 
 ## Getting Started
@@ -51,7 +51,7 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 
 2. Search `BarcodeFormatIds` and choose the one you need.
 
-   e.g., If you only want to read specific barcode formats and ensure a high recognition rate, you can modify the `BarcodeFormatIds` object in the `task-read-barcodes-read-rate` task.
+   e.g., If you only want to read specific barcode formats and ensure a high recognition rate, you can modify the `BarcodeFormatIds` object in the `task-read-barcodes` task.
 
 3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
