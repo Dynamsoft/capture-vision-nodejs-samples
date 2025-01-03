@@ -29,11 +29,11 @@ https://github.com/Dynamsoft/capture-vision-nodejs-samples/archive/refs/heads/ma
 
 Unzip it, assuming you unzipped it to `path/to/capture-vision-nodejs-samples-main`.
 
-Go into the `lambda` folder. Now the path is `path/to/capture-vision-nodejs-samples-main/lambda`.
+Go into the `lambda` directory. Now the path is `path/to/capture-vision-nodejs-samples-main/lambda`.
 
 ## Trial License
 
-Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server. Then replace `Your license` in your source code (`index.js` and `index.mjs`).
+Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server. Then replace `Your license` in your source code (`index.js` and `index.mjs` in `lambda` directory).
 
 ## Install Dependency
 
@@ -61,34 +61,34 @@ We provide both `index.js` or `index.mjs`. You can choose one you like and delet
 
 ## (Optional) Save Disk Space
 
-If your local development machine is not of the same OS/arch as lambda, it is better to remove the useless `node_modules/dynamsoft-capture-vision-for-node-dylib-<OS>-<arch>` before deployment.
+If your local development machine is not of the same OS/arch as lambda, it is better to remove the useless `node_modules/dynamsoft-capture-vision-for-node-dylib-<your development machine's OS-arch>` before deployment.
 
-You can also remove some files in `node_modules/koffi`, only left:
-* `node_modules/koffi/build/koffi/<target os_arch>`
+All situations apply, you can remove some files in `node_modules/koffi`, only left:
+* `node_modules/koffi/build/koffi/<target lambda os_arch>`
 * `node_modules/koffi/index.js`
 * `node_modules/koffi/package.json`
 
 ## Create the Lambda Function
 
-Compress the files in the `lambda` directory to `lambda.zip`. Do not include the root directory `lambda`.
+Compress the files in the `lambda` directory to `lambda.zip`. Do not include the root directory `lambda`. You can test like this: Move the `lambda.zip` into an empty folder,  `Exctract Here` the `lambda.zip`, you will not see a directory called `lambda`.
 
 Open AWS Console page in browser.
 
-Type `lambda` in the search box of AWS Console. Then enter Lambda Console.
+Type `lambda` in the search box (in left top) of AWS Console. Click the `Lambda` button to enter `Lambda Console`.
 
-`Create function` -> Any function name -> Choose `x86_64` or `arm64` ->
+`Create function` -> Any function name -> Check and choose `x86_64` or `arm64` ->
 
 `Additional configurations` -> Enable `function url` ->
 
 `Auth type` as None -> Enable `CORS` ->
 
-Click `create function` and it go to a new page ->
+Click `create function` button and it go to a new page ->
 
-Click `upload from` -> `.zip file` -> Choose `lambda.zip` you created ->
+Click `upload from` -> `.zip file` -> Choose `lambda.zip` that you created ->
 
 Waiting... Until it says like "Successfully uploaded file." ->
 
-You can see files in `Code source` changed, if not, refresh page -> Deploy ->
+You can see files in `Code source` changed; if not, refresh page -> Deploy ->
 
 Go to `Configuration` tab -> `General configuration` -> Edit ->
 
