@@ -109,8 +109,8 @@ let result = await CaptureVisionRouter.captureAsync(
 |  os  |  arch  |
 |:-----|:-------|
 | win32 (windows) | x86, x64 |
-| linux | x64, amd64 |
-| darwin (mac) | x64, amd64 |
+| linux | x64, arm64 |
+| darwin (mac) | x64, arm64 |
 
 > [!CAUTION]
 > Since the Dynamsoft Capture Vision 2.6 version of `.dylib` is not compiled, the 2.4 version is used on the `darwin` platform, and the template and some other resources may be incompatible with `linux`/`win32`.
