@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@2.6.1000 -E
+npm i dynamsoft-capture-vision-for-node@2.6.1002 -E
 ```
 
 ## Getting Started
