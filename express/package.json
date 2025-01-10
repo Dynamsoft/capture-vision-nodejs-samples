@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "2.6.1002",
+    "dynamsoft-capture-vision-for-node": "2.6.1004",
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.1"
   }

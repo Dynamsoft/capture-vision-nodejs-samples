@@ -52,7 +52,7 @@ If your local development machine is not of the same OS/arch as your target lamb
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-linux-<arch>@<version> -f -E
 ```
-You can find `<arch>@<version>` in [`node_modules/dynamsoft-capture-vision-for-node/package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
+You can find `<arch>@<version>` in [`node_modules/dynamsoft-capture-vision-for-node/package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L57).
 
 
 ## (Optional) Commonjs and ES Module

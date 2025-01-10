@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@2.6.1002 -E
+npm i dynamsoft-capture-vision-for-node@2.6.1004 -E
 ```
 
 ## Getting Started
@@ -115,7 +115,7 @@ let result = await CaptureVisionRouter.captureAsync(
 > [!CAUTION]
 > Since the Dynamsoft Capture Vision 2.6 version of `.dylib` is not compiled, the 2.4 version is used on the `darwin` platform, and the template and some other resources may be incompatible with `linux`/`win32`.
 
-You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L56).
+You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L57).
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
@@ -137,7 +137,7 @@ We also made special adaptation for AWS lambda, see [this sample](https://github
 
 ### Character Model for Label Recognizer
 
-When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L53).
+When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
 ```sh
 npm i dynamsoft-capture-vision-for-node-charactermodel@<version> -E
 ```
