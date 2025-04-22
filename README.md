@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@3.0.1001 -E
+npm i dynamsoft-capture-vision-for-node@3.0.1002 -E
 ```
 
 ## Getting Started
@@ -125,7 +125,7 @@ for(let result of results){
 > [!CAUTION]
 > Since the Dynamsoft Capture Vision 3.x version of `.dylib` is not fully released, only barcode reader feature is available on the `darwin` platform.
 
-You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L57).
+You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L60).
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
@@ -147,9 +147,9 @@ We also made special adaptation for AWS lambda, see [this sample](https://github
 
 ### Character Model for Label Recognizer
 
-When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-charactermodel`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
+When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
 ```sh
-npm i dynamsoft-capture-vision-for-node-charactermodel@<version> -E
+npm i dynamsoft-capture-vision-for-node-model@<version> -E
 ```
 
 ### Multiple `CaptureVisionRouter` Instances
