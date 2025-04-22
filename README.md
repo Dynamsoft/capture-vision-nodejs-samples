@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@2.6.1004 -E
+npm i dynamsoft-capture-vision-for-node@3.0.1001 -E
 ```
 
 ## Getting Started
@@ -27,7 +27,7 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
   // refer to https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/api-reference/capture-vision-router/auxiliary-classes/captured-result.html?product=dbr&lang=cplusplus
   // or run `console.log(require('node:util').inspect(result, false, null))` to see details
   for(let item of result.barcodeResultItems){
-      console.log(item.text);
+    console.log(item.text);
   }
 
   // Terminate workers so you can exit the process.
@@ -79,7 +79,7 @@ The functionality of DCV largely depends on the choice of template. Dynamsoft of
 
 The synchronous version is `capture(...)`, which processes images on the main thread.
 
-The `capture` like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf. The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
+The `capture` like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf, tiff. The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
 ```ts
 interface DCVImageData{
   bytes: Uint8Array;
@@ -104,6 +104,16 @@ let result = await CaptureVisionRouter.captureAsync(
 );
 ```
 
+For multi-page PDF and TIFF, you can use `captureMultiPages`.
+```js
+let results = await CaptureVisionRouter.captureMultiPagesAsync('./multi-page.pdf', EnumPresetTemplate.PT_READ_BARCODES);
+for(let result of results){
+  for(let item of result.barcodeResultItems){
+    console.log(item.text);
+  }
+}
+```
+
 ## Supported OS/Arch
 
 |  os  |  arch  |
@@ -113,7 +123,7 @@ let result = await CaptureVisionRouter.captureAsync(
 | darwin (mac) | x64, arm64 |
 
 > [!CAUTION]
-> Since the Dynamsoft Capture Vision 2.6 version of `.dylib` is not compiled, the 2.4 version is used on the `darwin` platform, and the template and some other resources may be incompatible with `linux`/`win32`.
+> Since the Dynamsoft Capture Vision 3.x version of `.dylib` is not fully released, only barcode reader feature is available on the `darwin` platform.
 
 You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L57).
 
