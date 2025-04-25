@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@3.0.1002 -E
+npm i dynamsoft-capture-vision-for-node@3.0.1004 -E
 ```
 
 ## Getting Started
@@ -108,6 +108,8 @@ For multi-page PDF and TIFF, you can use `captureMultiPages`.
 ```js
 let results = await CaptureVisionRouter.captureMultiPagesAsync('./multi-page.pdf', EnumPresetTemplate.PT_READ_BARCODES);
 for(let result of results){
+  const tag = result.originalImageTag;
+  console.log(`# page ${tag.pageNumber}/${tag.totalPages}:`);
   for(let item of result.barcodeResultItems){
     console.log(item.text);
   }
