@@ -63,7 +63,7 @@ We provide both `index.js` or `index.mjs`. You can choose one you like and delet
 
 If your local development machine is not of the same OS/arch as lambda, it is better to remove the useless `node_modules/dynamsoft-capture-vision-for-node-dylib-<your development machine's OS-arch>` before deployment.
 
-All situations apply, you can remove some files in `node_modules/koffi`, only left:
+All situations apply, you can remove some files in `node_modules/koffi`, only leave:
 * `node_modules/koffi/build/koffi/<target lambda os_arch>`
 * `node_modules/koffi/index.js`
 * `node_modules/koffi/package.json`
