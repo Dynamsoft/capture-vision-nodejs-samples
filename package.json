@@ -57,11 +57,11 @@
     }
   },
   "optionalDependencies": {
-    "dynamsoft-capture-vision-for-node-lib-darwin-universal2": "0.0.1",
-    "dynamsoft-capture-vision-for-node-lib-linux-arm64": "0.0.2",
-    "dynamsoft-capture-vision-for-node-lib-linux-x64": "0.0.2",
-    "dynamsoft-capture-vision-for-node-lib-win32-ia32": "0.0.2",
-    "dynamsoft-capture-vision-for-node-lib-win32-x64": "0.0.2"
+    "dynamsoft-capture-vision-for-node-lib-darwin-universal2": "0.0.3",
+    "dynamsoft-capture-vision-for-node-lib-linux-arm64": "0.0.3",
+    "dynamsoft-capture-vision-for-node-lib-linux-x64": "0.0.3",
+    "dynamsoft-capture-vision-for-node-lib-win32-ia32": "0.0.3",
+    "dynamsoft-capture-vision-for-node-lib-win32-x64": "0.0.3"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
