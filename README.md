@@ -147,7 +147,7 @@ We also made special adaptation for AWS lambda, see [this sample](https://github
 
 ## Special Notes
 
-### Character Model for Label Recognizer
+### AI Model for Label Recognizer
 
 When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
 ```sh
