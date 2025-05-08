@@ -23,7 +23,7 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 (async()=>{
   // you can get the image from https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/AllSupportedBarcodeTypes.png
   // The second parameter `templateName` tells the SDK how to process this image.
-  let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES);
+  let result = await CaptureVisionRouter.captureAsync('./AllSupportedBarcodeTypes.png', EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
   // refer to https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/api-reference/capture-vision-router/auxiliary-classes/captured-result.html?product=dbr&lang=cplusplus
   // or run `console.log(require('node:util').inspect(result, false, null))` to see details
   for(let item of result.barcodeResultItems){
@@ -43,15 +43,28 @@ If your trial license expired, please visit https://www.dynamsoft.com/customer/l
 
 ## Template Customization
 
-The functionality of DCV largely depends on the choice of template. Dynamsoft offers preset templates. Below is an example illustrating how to modify the target barcode formats for a barcode reading task.
+The functionality of DCV largely depends on the choice of template. Dynamsoft offers preset templates in `EnumPresetTemplate.XXXX`. We show the part about barcode:
+
+```typescript
+/** compatible with "read-barcodes" */
+PT_READ_BARCODES = "ReadBarcodes_Default",
+/** Represents a barcode reading mode where speed is prioritized. */
+PT_READ_BARCODES_SPEED_FIRST = "ReadBarcodes_SpeedFirst",
+/** Represents a barcode reading mode where barcode read rate is prioritized. */
+PT_READ_BARCODES_READ_RATE_FIRST = "ReadBarcodes_ReadRateFirst",
+/** Represents a barcode reading mode for single barcode code detection. */
+PT_READ_SINGLE_BARCODE = "ReadSingleBarcode",
+```
 
 ### How to Specific the Barcode Formats
+
+Below is an example illustrating how to modify the target barcode formats for `PT_READ_BARCODES_READ_RATE_FIRST`.
 
 1. Copy SDK's `Templates\DBR-PresetTemplates.json` to your place. This file contains all the preset templates related to barcode reading.
 
 2. Search `BarcodeFormatIds` and choose the one you need.
 
-   e.g., If you only want to read specific barcode formats and ensure a high recognition rate, you can modify the `BarcodeFormatIds` object in the `task-read-barcodes` task.
+   e.g., If you only want to read specific barcode formats and ensure a high recognition rate in `PT_READ_BARCODES_READ_RATE_FIRST`, you can modify the `BarcodeFormatIds` object in the `task-read-barcodes-read-rate` task.
 
 3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
@@ -106,7 +119,7 @@ let result = await CaptureVisionRouter.captureAsync(
 
 For multi-page PDF and TIFF, you can use `captureMultiPages`.
 ```js
-let results = await CaptureVisionRouter.captureMultiPagesAsync('./multi-page.pdf', EnumPresetTemplate.PT_READ_BARCODES);
+let results = await CaptureVisionRouter.captureMultiPagesAsync('./multi-page.pdf', EnumPresetTemplate.XXXX);
 for(let result of results){
   const tag = result.originalImageTag;
   console.log(`# page ${tag.pageNumber}/${tag.totalPages}:`);
