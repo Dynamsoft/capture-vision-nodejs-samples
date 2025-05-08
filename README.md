@@ -69,7 +69,7 @@ Below is an example illustrating how to modify the target barcode formats for `P
 3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
    >```diff
-   >  "Name": "task-read-barcodes",
+   >  "Name": "task-read-barcodes-read-rate",
    >  "ExpectedBarcodesCount": 0,
    >  "BarcodeFormatIds": [
    >-  "BF_DEFAULT"
