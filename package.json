@@ -1,6 +1,6 @@
 {
   "name": "dynamsoft-capture-vision-for-node",
-  "version": "3.0.1006",
+  "version": "3.0.1007",
   "description": "Dynamsoft Capture Vision (DCV) is a comprehensive SDK that integrates various functional products. It encompasses image capture, content understanding, result parsing, and interactive workflow. Essentially, DCV processes images to extract specific information that is meaningful within a business context.",
   "keywords": [
     "JavaScript barcode",
@@ -59,7 +59,7 @@
   "optionalDependencies": {
     "dynamsoft-capture-vision-for-node-lib-darwin-universal2": "0.0.3",
     "dynamsoft-capture-vision-for-node-lib-linux-arm64": "0.0.3",
-    "dynamsoft-capture-vision-for-node-lib-linux-x64": "0.0.4",
+    "dynamsoft-capture-vision-for-node-lib-linux-x64": "0.0.5",
     "dynamsoft-capture-vision-for-node-lib-win32-ia32": "0.0.3",
     "dynamsoft-capture-vision-for-node-lib-win32-x64": "0.0.3"
   },

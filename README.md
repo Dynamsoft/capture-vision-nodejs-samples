@@ -5,7 +5,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@3.0.1006 -E
+npm i dynamsoft-capture-vision-for-node@3.0.1007 -E
 ```
 
 ## Getting Started
@@ -131,7 +131,7 @@ for(let result of results){
 
 ## Supported OS/Arch
 
-Node.js >= 14.x
+Node.js >= 16.x
 
 |  os  |  arch  |
 |:-----|:-------|
