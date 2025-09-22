@@ -2,7 +2,7 @@
 
 This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/), enabling you to read barcodes, recognize partial label text, capture documents, and perform other advanced vision tasks.
 
-## Install SDK
+## Install the SDK
 
 ```sh
 npm i dynamsoft-capture-vision-for-node@3.0.1007 -E
@@ -17,7 +17,7 @@ const { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dyn
 
 // You can get your trial license from
 // https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server/Embedded
-// The current used license is valid for only one day.
+// The current license is valid for only one day.
 LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 (async()=>{
@@ -36,14 +36,14 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 })();
 ```
 
-If your trial license expired, please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server.
+If your trial license has expired, please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server.
 
 > [!NOTE]
-> Guide for tasks such as Label Recognition and Document Capturing are under development. You can refer to the [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) while writing code for Node.js. Or [contact us](https://www.dynamsoft.com/contact/) for assistance.
+> Guides for tasks such as Label Recognition and Document Capturing are under development. You can refer to the [C++ document](https://www.dynamsoft.com/capture-vision/docs/server/programming/cplusplus/user-guide/index.html) while writing code for Node.js. Or [contact us](https://www.dynamsoft.com/contact/) for assistance.
 
 ## Template Customization
 
-The functionality of DCV largely depends on the choice of template. Dynamsoft offers preset templates in `EnumPresetTemplate.XXXX`. We show the part about barcode:
+The functionality of DCV largely depends on the choice of template. Dynamsoft offers preset templates in `EnumPresetTemplate.XXXX`. Here is the part about barcodes:
 
 ```typescript
 /** compatible with "read-barcodes" */
@@ -56,17 +56,17 @@ PT_READ_BARCODES_READ_RATE_FIRST = "ReadBarcodes_ReadRateFirst",
 PT_READ_SINGLE_BARCODE = "ReadSingleBarcode",
 ```
 
-### How to Specific the Barcode Formats
+### How to Specify the Barcode Formats
 
 Below is an example illustrating how to modify the target barcode formats for `PT_READ_BARCODES_READ_RATE_FIRST`.
 
-1. Copy SDK's `Templates\DBR-PresetTemplates.json` to your place. This file contains all the preset templates related to barcode reading.
+1. Copy the SDK's `Templates\DBR-PresetTemplates.json` to your directory. This file contains all the preset templates related to barcode reading.
 
 2. Search `BarcodeFormatIds` and choose the one you need.
 
    e.g., If you only want to read specific barcode formats and ensure a high recognition rate in `PT_READ_BARCODES_READ_RATE_FIRST`, you can modify the `BarcodeFormatIds` object in the `task-read-barcodes-read-rate` task.
 
-3. Suppose you only want to recognize `QRCode` and `DataMatrix`, you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
+3. Suppose you only want to recognize `QRCode` and `DataMatrix`; you can change `BarcodeFormatIds` like this. You can get barcode format strings [here](https://www.dynamsoft.com/capture-vision/docs/core/enums/barcode-reader/barcode-format.html).
 
    >```diff
    >  "Name": "task-read-barcodes-read-rate",
@@ -88,11 +88,11 @@ Below is an example illustrating how to modify the target barcode formats for `P
 
 ## About the `capture` like API
 
-`captureAsync(...)` process images in [worker](https://nodejs.org/api/worker_threads.html). The maximum number of workers is defined by `CaptureVisionRouter.maxWorkerCount`, which defaults to `<logical processor number> - 1` (minimum of 1). If you continue to call `captureAsync(...)` while all workers are busy, the tasks will be queued and wait for execution. You can get the queue length by `CaptureVisionRouter.waitQueueLength`.
+`captureAsync(...)` processes images in [worker](https://nodejs.org/api/worker_threads.html). The maximum number of workers is defined by `CaptureVisionRouter.maxWorkerCount`, which defaults to `<logical processor number> - 1` (minimum of 1). If you continue to call `captureAsync(...)` while all workers are busy, the tasks will be queued and wait for execution. You can get the queue length by `CaptureVisionRouter.waitQueueLength`.
 
 The synchronous version is `capture(...)`, which processes images on the main thread.
 
-The `capture` like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf, tiff. The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
+The `capture` -like APIs can accept file path `string` or file bytes `Uint8Array` as input data. Currently supported file types are jpg, png, bmp, gif, pdf, tiff. The `capture` like APIs also accept `DCVImageData` as input data. Typically used to process raw data from a camera.
 ```ts
 interface DCVImageData{
   bytes: Uint8Array;
@@ -105,7 +105,7 @@ interface DCVImageData{
 }
 ```
 
-If input data is file bytes or `DCVImageData`, by default, `captureAsync(...)` will [transfer](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage#transfer) bytes into worker. Thus you can't access to these bytes in main thread after `captureAsync`. This allows for optimal performance.
+If input data is file bytes or `DCVImageData`, by default, `captureAsync(...)` will [transfer](https://developer.mozilla.org/en-US/docs/Web/API/Worker/postMessage#transfer) bytes into worker. Thus you can't access these bytes in the main thread after `captureAsync`. This allows for optimal performance.
 
 The following code can prevent bytes from being transferred.
 ```js
@@ -117,7 +117,7 @@ let result = await CaptureVisionRouter.captureAsync(
 );
 ```
 
-For multi-page PDF and TIFF, you can use `captureMultiPages`.
+For multi-page PDFs and TIFFs, you can use `captureMultiPages`.
 ```js
 let results = await CaptureVisionRouter.captureMultiPagesAsync('./multi-page.pdf', EnumPresetTemplate.XXXX);
 for(let result of results){
@@ -140,9 +140,9 @@ Node.js >= 16.x
 | darwin (mac) | x64, arm64 |
 
 > [!CAUTION]
-> Since the Dynamsoft Capture Vision 3.x version of `.dylib` is not fully released, only barcode reader feature is available on the `darwin` platform.
+> Since the Dynamsoft Capture Vision 3.x version of `.dylib` is not fully released, only the barcode reader feature is available on the `darwin` platform.
 
-You can force(`-f`) install resources pkgs (dynamic libraries) for other OS/arch. So you can develop and deploy in different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L60).
+You can force(`-f`) install resource packages (dynamic libraries) for other OS/arch. So you can develop and deploy on different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L60).
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
@@ -152,26 +152,26 @@ npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
 
 ### Web Service
 
-[Express sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/express) and [koa sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/koa) shows how to use the SDK in a web service.
+[Express sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/express) and [koa sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/koa) show how to use the SDK in a web service.
 
-You do not need to start multiple instance processes in [PM2 Cluster mode](https://pm2.keymetrics.io/docs/usage/quick-start/#cluster-mode). As mentioned above, Dynamsoft Capture Vision for Node already manages a thread pool. However, `pm2 start app.js` is still useful, it can automatically restart `app.js` when service crashes.
+You do not need to start multiple process instances in [PM2 Cluster mode](https://pm2.keymetrics.io/docs/usage/quick-start/#cluster-mode). As mentioned above, Dynamsoft Capture Vision for Node already manages a thread pool. However, `pm2 start app.js` is still useful, it can automatically restart `app.js` when the service crashes.
 
 ### AWS Lambda
 
-We also made special adaptation for AWS lambda, see [this sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/lambda). Other similar single-function platforms may have some compatibility issues. If you have any needs, please contact us.
+We also made a special adaptation for AWS Lambda; see [this sample](https://github.com/Dynamsoft/capture-vision-nodejs-samples/tree/main/lambda). Other similar single-function platforms may have some compatibility issues. If you have any needs, please contact us.
 
 ## Special Notes
 
 ### AI Model for Label Recognizer
 
-When performing text recognition tasks，you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
+When performing text recognition tasks, you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in the SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
 ```sh
 npm i dynamsoft-capture-vision-for-node-model@<version> -E
 ```
 
 ### Multiple `CaptureVisionRouter` Instances
 
-In some **rare** cases you may need multiple `CaptureVisionRouter` instances, such as customizing different templates for each instance. Here is how to use:
+In some **rare** cases, you may need multiple `CaptureVisionRouter` instances, such as customizing different templates for each instance. Here is how to use:
 
 ```js
 let cvr = new CaptureVisionRouter();
