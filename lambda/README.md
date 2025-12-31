@@ -33,7 +33,7 @@ Go into the `lambda` directory. Now the path is `path/to/capture-vision-nodejs-s
 
 ## Trial License
 
-Please visit https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server. Then replace `Your license` in your source code (`index.js` and `index.mjs` in `lambda` directory).
+Please visit https://www.dynamsoft.com/customer/license/trialLicense?product=dbr&package=desktop. Then replace `Your license` in your source code (`index.js` and `index.mjs` in `lambda` directory).
 
 ## Install Dependency
 
@@ -67,6 +67,16 @@ All situations apply, you can remove some files in `node_modules/koffi`, only le
 * `node_modules/koffi/build/koffi/<target lambda os_arch>`
 * `node_modules/koffi/index.js`
 * `node_modules/koffi/package.json`
+
+## (Optional) AI Models
+
+Note that we used `PT_READ_BARCODES_SPEED_FIRST` in sample. This eliminates the need to load the AI ​​model.
+
+If you want to use other preset templates, you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
+```sh
+npm i dynamsoft-capture-vision-for-node-model@<version> -E
+```
+And you may need to upgrade your Lambda specifications.
 
 ## Create the Lambda Function
 

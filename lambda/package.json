@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "3.0.1007"
+    "dynamsoft-capture-vision-for-node": "3.2.5002"
   }
 }

@@ -5,9 +5,11 @@ import { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } from 'dynamso
 const app = express();
 const port = 3000;
 
-// You can get your trial license from
-// https://www.dynamsoft.com/customer/license/trialLicense -> Barcode Reader / Capture Vision Suite -> Desktop/Server/Embedded
-// The current used license is valid for only one day.
+// You can get your reading barcodes trial license from
+// https://www.dynamsoft.com/customer/license/trialLicense?product=dbr&package=desktop
+// You can get your recognizing partial label text, capturing documents or other feature trial license from
+// https://www.dynamsoft.com/customer/license/trialLicense?product=dcv&package=desktop
+// The current license is valid for only one day.
 LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 
 app.post('/api/capture',
