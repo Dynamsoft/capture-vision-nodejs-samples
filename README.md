@@ -7,7 +7,7 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ```sh
 npm i dynamsoft-capture-vision-for-node@3.2.5002 -E
 # In many tasks, we used AI models.
-# For simplicity, we will also load this package.
+# For simplicity, we will also install this package.
 npm i dynamsoft-capture-vision-for-node-model@3.2.5001 -E
 ```
 
