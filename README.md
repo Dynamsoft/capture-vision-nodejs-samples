@@ -181,6 +181,41 @@ you need to install `dynamsoft-capture-vision-for-node-model`. You can check the
 npm i dynamsoft-capture-vision-for-node-model@<version> -E
 ```
 
+### Error `Model file is not found`
+
+If you have installed the AI model package, and you called `CaptureVisionRouter.initSettings(<custom barcode template>)`, then you still get `Model file is not found` error; you can fix it by adding a json to end of the template:
+```diff
+{
+  "AAAA":[],
+  "BBBB":[],
+  "XXXX":[
++ ],
++ "CaptureVisionModelOptions": [
++     {
++         "Name": "Code128Decoder",
++         "MaxModelInstances": 4
++     },
++     {
++         "Name": "DataMatrixQRCodeLocalization",
++         "MaxModelInstances": 4
++     },
++     {
++         "Name": "EAN13Decoder",
++         "MaxModelInstances": 4
++     },
++     {
++         "Name": "OneDDeblur",
++         "MaxModelInstances": 4
++     },
++     {
++         "Name": "OneDLocalization",
++         "MaxModelInstances": 4
++     }
+  ]
+}
+```
+This is because in Node.js, the AI model location needs to be explicitly specified. The use of the model cannot be implicit; it must be explicitly stated so that its location can be modified by Node.js wrappers. The built-in templates already do this, but templates from other sources may not have considered the specific characteristics of the Node.js environment.
+
 ### Multiple `CaptureVisionRouter` Instances
 
 In some **rare** cases, you may need multiple `CaptureVisionRouter` instances, such as customizing different templates for each instance. Here is how to use:
