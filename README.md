@@ -214,7 +214,7 @@ If you have installed the AI model package, and you called `CaptureVisionRouter.
   ]
 }
 ```
-In Dynamsoft Capture Vision for Node, the AI ​​models reside in a separate package. Since the model is not in the default location expected by the C++ DLL, we need to explicitly specify the model's location. The use of the models cannot be implicit in templates; it must be explicitly stated so that its location can be modified by Node.js wrappers. The built-in templates already do this, but templates from other sources may not have considered the specific characteristics of the Node.js environment.
+In Dynamsoft Capture Vision for Node, the AI ​​models reside in a separate package. Since the model is not in the default location expected by the C++ DLL, we need to explicitly specify the model's location. The use of the models cannot be implicit in templates; it must be explicitly stated so that its location can be modified by Node.js wrappers. The built-in templates already declare the use of the model. But templates from other sources may not have considered this.
 
 ### Multiple `CaptureVisionRouter` Instances
 
