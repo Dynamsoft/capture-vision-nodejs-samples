@@ -9,9 +9,3 @@ This sample demonstrates how to dynamically control the DPI to prevent excessive
 `npm install`
 
 `node ./index.js`
-
-## More Optimization
-
-For easier understanding, in this sample, the PDF file is first completely converted into multiple PNG images before performing barcode decoding.
-
-You can rasterize the pdf one page, then decode barcodes in one page. This page by page processing allows for better control of memory usage, which is especially important for PDF files containing hundreds of pages.

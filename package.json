@@ -1,6 +1,6 @@
 {
   "name": "dynamsoft-capture-vision-for-node",
-  "version": "3.0.1007",
+  "version": "3.6.4002",
   "description": "Dynamsoft Capture Vision (DCV) is a comprehensive SDK that integrates various functional products. It encompasses image capture, content understanding, result parsing, and interactive workflow. Essentially, DCV processes images to extract specific information that is meaningful within a business context.",
   "keywords": [
     "JavaScript barcode",
@@ -12,22 +12,24 @@
     "Linear barcode",
     "1D barcode"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "sideEffects": false,
   "exports": {
     "import": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
+      "default": "./dist/index.js"
     },
     "require": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     }
   },
   "scripts": {
     "build": "rollup -c",
-    "test": "node ./test/test.js"
+    "test": "node ./test/test.cjs",
+    "check-dts": "npx @arethetypeswrong/cli --pack"
   },
   "author": {
     "name": "Dynamsoft",
@@ -49,7 +51,7 @@
     "koffi": "^2.9.1"
   },
   "peerDependencies": {
-    "dynamsoft-capture-vision-for-node-model": "0.0.1"
+    "dynamsoft-capture-vision-for-node-model": "3.6.4000"
   },
   "peerDependenciesMeta": {
     "dynamsoft-capture-vision-for-node-model": {
@@ -57,11 +59,11 @@
     }
   },
   "optionalDependencies": {
-    "dynamsoft-capture-vision-for-node-lib-darwin-universal2": "0.0.3",
-    "dynamsoft-capture-vision-for-node-lib-linux-arm64": "0.0.3",
-    "dynamsoft-capture-vision-for-node-lib-linux-x64": "0.0.5",
-    "dynamsoft-capture-vision-for-node-lib-win32-ia32": "0.0.3",
-    "dynamsoft-capture-vision-for-node-lib-win32-x64": "0.0.3"
+    "dynamsoft-capture-vision-for-node-lib-darwin-universal2": "3.6.4000",
+    "dynamsoft-capture-vision-for-node-lib-linux-arm64": "3.6.4000",
+    "dynamsoft-capture-vision-for-node-lib-linux-x64": "3.6.4000",
+    "dynamsoft-capture-vision-for-node-lib-win32-ia32": "3.6.4000",
+    "dynamsoft-capture-vision-for-node-lib-win32-x64": "3.6.4000"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
@@ -77,5 +79,8 @@
     "/Templates",
     "/ParserResources",
     "/README.md"
-  ]
+  ],
+  "allowScripts": {
+    "koffi@2.16.3": true
+  }
 }

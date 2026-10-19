@@ -18,8 +18,8 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
     // https://en.wikipedia.org/wiki/List_of_file_signatures
     if(buffer.byteLength > 5 && 0 == buffer.compare(Buffer.from('255044462d','hex'), 0, 5, 0, 5)){
         // buffer is pdf
-        let imgs = await pdf2png(new Uint8Array(buffer));
-        for(let img of imgs){
+        const iterImgAsync = pdf2png(new Uint8Array(buffer));
+        for await (const img of iterImgAsync) {
             const result = await CaptureVisionRouter.captureAsync(new Uint8Array(img), EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
             for(let item of result.barcodeResultItems){
                 console.log(item.text);

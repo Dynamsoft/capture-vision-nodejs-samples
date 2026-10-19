@@ -2,12 +2,25 @@
   "name": "dcv-koa",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc app.ts --outDir ./ --module esnext --skipLibCheck --ignoreConfig",
+    "build-commonjs": "tsc app.cts --outDir ./ --module commonjs --skipLibCheck --ignoreConfig"
+  },
   "dependencies": {
     "@koa/multer": "^3.0.2",
     "@koa/router": "^13.1.0",
-    "dynamsoft-capture-vision-for-node": "3.2.5002",
-    "dynamsoft-capture-vision-for-node-model": "3.2.5001",
+    "dynamsoft-capture-vision-for-node": "3.6.4002",
+    "dynamsoft-capture-vision-for-node-model": "3.6.4000",
     "koa": "^2.15.3",
     "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^3.0.3",
+    "@types/koa__multer": "^2.0.8",
+    "@types/koa__router": "^12.0.5",
+    "@types/koa-static": "^4.0.4",
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
   }
 }
