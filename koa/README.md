@@ -7,13 +7,16 @@ Install the required npm packages:
 npm i
 ```
 
-Run as commonjs:
+Build and run ESM
 ```sh
+npm run build
 node app.js
 ```
-Or run as es module:
+
+Build and run CommonJS
 ```sh
-node app.mjs
+npm run build-commonjs
+node app.cjs
 ```
 
 Open the url displayed in the command line.

@@ -5,10 +5,10 @@ This is a Node.js wrapper for [Dynamsoft Capture Vision](https://www.dynamsoft.c
 ## Install the SDK
 
 ```sh
-npm i dynamsoft-capture-vision-for-node@3.2.5002 -E
+npm i dynamsoft-capture-vision-for-node@3.6.4002 -E
 # In many tasks, we used AI models.
 # For simplicity, we will also install this package.
-npm i dynamsoft-capture-vision-for-node-model@3.2.5001 -E
+npm i dynamsoft-capture-vision-for-node-model@3.6.4000 -E
 ```
 
 ## Getting Started
@@ -142,10 +142,10 @@ Node.js >= 16.x
 |  os  |  arch  |
 |:-----|:-------|
 | win32 (windows) |  x86, x64 (Vista or newer) |
-| linux | x64 (glibc >= 2.18), arm64 |
-| darwin (mac) | x64, arm64 |
+| linux | x64 (glibc >= 2.17), arm64 (glibc >= 2.32) |
+| darwin (mac) | x64, arm64 (macOS >= 12.0) |
 
-You can force(`-f`) install resource packages (dynamic libraries) for other OS/arch. So you can develop and deploy on different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L60).
+You can force(`-f`) install resource packages (dynamic libraries) for other OS/arch. So you can develop and deploy on different machines. You can check the `<OS>-<arch>@<version>` in this SDK's [`package.json`->`optionalDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L61).
 
 ```sh
 npm i dynamsoft-capture-vision-for-node-lib-<OS>-<arch>@<version> -f -E
@@ -176,7 +176,7 @@ When performing
 * barcode recognition tasks excpet `PT_READ_BARCODES_SPEED_FIRST`
 * text recognition tasks
 
-you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in the SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L52).
+you need to install `dynamsoft-capture-vision-for-node-model`. You can check the `<version>` in the SDK's [`package.json`->`peerDependencies`](https://github.com/Dynamsoft/capture-vision-nodejs-samples/blob/main/package.json#L54).
 ```sh
 npm i dynamsoft-capture-vision-for-node-model@<version> -E
 ```
@@ -192,7 +192,15 @@ If you have installed the AI model package, and you called `CaptureVisionRouter.
 + ],
 + "CaptureVisionModelOptions": [
 +     {
++         "Name": "Code39ITFDecoder",
++         "MaxModelInstances": 4
++     },
++     {
 +         "Name": "Code128Decoder",
++         "MaxModelInstances": 4
++     },
++     {
++         "Name": "DataMatrixQRCodeDeblur",
 +         "MaxModelInstances": 4
 +     },
 +     {
@@ -214,7 +222,7 @@ If you have installed the AI model package, and you called `CaptureVisionRouter.
   ]
 }
 ```
-In Dynamsoft Capture Vision for Node, the AI ​​models reside in a separate package. Since the model is not in the default location expected by the C++ DLL, we need to explicitly specify the model's location. The use of the models cannot be implicit in templates; it must be explicitly stated so that its location can be modified by Node.js wrappers. The built-in templates already declare the use of the model. But templates from other sources may not have considered this.
+This is because in Node.js, the AI model location needs to be explicitly specified. The use of the model cannot be implicit; it must be explicitly stated so that its location can be modified by Node.js wrappers. The built-in templates already do this, but templates from other sources may not have considered the specific characteristics of the Node.js environment.
 
 ### Multiple `CaptureVisionRouter` Instances
 

@@ -1,6 +1,7 @@
-const express = require('express');
-const multer = require('multer');
-const { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } = require('dynamsoft-capture-vision-for-node');
+import express = require('express');
+import multer = require('multer');
+import dcv = require('dynamsoft-capture-vision-for-node');
+const { LicenseManager, CaptureVisionRouter, EnumPresetTemplate } = dcv;
 
 const app = express();
 const port = 3000;
@@ -15,7 +16,7 @@ LicenseManager.initLicense('DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9');
 app.post('/api/capture',
   multer().single('image'), // handle `multpart/form-data`
   async(req, res)=>{
-    let result = await CaptureVisionRouter.captureAsync(req.file.buffer, EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
+    let result = await CaptureVisionRouter.captureAsync(req.file!.buffer, EnumPresetTemplate.PT_READ_BARCODES_READ_RATE_FIRST);
     const txts = [];
     for(let i of result.barcodeResultItems){
       txts.push(i.text);
