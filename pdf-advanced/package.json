@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "3.6.4002",
+    "dynamsoft-capture-vision-for-node": "3.6.4003",
     "dynamsoft-capture-vision-for-node-model": "3.6.4000",
     "pdfjs-dist": "^5.4.149"
   }
