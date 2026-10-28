@@ -8,7 +8,7 @@
     "build-commonjs": "tsc app.cts --outDir ./ --module commonjs --skipLibCheck --ignoreConfig"
   },
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "3.6.4002",
+    "dynamsoft-capture-vision-for-node": "3.6.4003",
     "dynamsoft-capture-vision-for-node-model": "3.6.4000",
     "express": "^4.21.2",
     "multer": "^2.0.0"
